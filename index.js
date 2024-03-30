@@ -14,6 +14,7 @@ const fetchRecipes = async (query) => {
         
         const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
         const response = await data.json();
+        console.log(response)
 
         recipeContainer.innerHTML = "";
         response.meals.forEach(meal=>{
@@ -37,7 +38,7 @@ const fetchRecipes = async (query) => {
         });
     } 
     catch (error) {
-        recipeContainer.innerHTML = "<h2> Error in Fetching Recipes..</h2>";
+        recipeContainer.innerHTML = "<h2> Recipe is not available in the list please search for another one..</h2>";
     }
 }
 // function to fetch ingredients and measurements
